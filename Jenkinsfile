@@ -2,7 +2,7 @@ pipeline {
     agent any
     stages {
         stage('Build') {
-            build {
+            steps {
                 sh 'jar -cvf sample.war *'
             }
         }
@@ -11,7 +11,8 @@ pipeline {
                 sh 'cp -r sample.war /home/ec2-user/apache-tomcat-10.1.13/webapps/'
             }
         }
-		post {
+    }
+	post {
 			success {
 				// Actions to perform on successful build
 				echo 'Build and deployment successful!'
@@ -21,5 +22,4 @@ pipeline {
 				echo 'Build or deployment failed!'
 			}
 		}
-    }
 }
