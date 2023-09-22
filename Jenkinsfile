@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                sh 'cp sample.war /home/ec2-user/apache-tomcat-10.1.13/webapps/'
+                sh 'cp sample.war /tomcat/apache-tomcat-10.1.13/webapps/'
             }
         }
     }
